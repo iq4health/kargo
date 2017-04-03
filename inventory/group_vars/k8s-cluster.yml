@@ -1,5 +1,5 @@
 # Valid bootstrap options (required): ubuntu, coreos, centos, none
-bootstrap_os: coreos
+bootstrap_os: none
 
 #Directory where etcd data stored
 etcd_data_dir: /var/lib/etcd
@@ -48,7 +48,7 @@ kube_cert_group: kube-cert
 kube_log_level: 2
 
 # Users to create for basic auth in Kubernetes API via HTTP
-kube_api_pwd: "UHNResearch4Life"
+kube_api_pwd: "changeme"
 kube_users:
   kube:
     pass: "{{kube_api_pwd}}"
@@ -78,7 +78,7 @@ kube_users:
 
 # Choose network plugin (calico, weave or flannel)
 # Can also be set to 'cloud', which lets the cloud provider setup appropriate routing
-kube_network_plugin: calico
+kube_network_plugin: flannel
 
 # Enable kubernetes network policies
 enable_network_policy: false
@@ -103,7 +103,7 @@ kube_apiserver_insecure_port: 8080 # (http)
 
 # DNS configuration.
 # Kubernetes cluster name, also will be used as DNS domain
-cluster_name: uhn.io
+cluster_name: cluster.local
 # Subdomains of DNS domain to be resolved via /etc/resolv.conf for hostnet pods
 ndots: 2
 # Can be dnsmasq_kubedns, kubedns or none
